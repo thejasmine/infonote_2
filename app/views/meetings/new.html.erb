@@ -1,0 +1,17 @@
+<h1>Add new note</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 offset-sm-2 my-2">
+      <%= simple_form_for [@contact, @meeting] do |f| %>
+        <div class="form-inputs">
+          <%= f.input :title %>
+          <%= f.input :note %>
+          <%= f.input :meeting_time %>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

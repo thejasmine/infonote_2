@@ -1,0 +1,25 @@
+<div class="container">
+  <h1><%= heading %></h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 offset-sm-2 my-2">
+      <%= simple_form_for(@contact) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :first_name %>
+          <%= f.input :last_name %>
+          <%= f.input :email %>
+          <%= f.input :phone %>
+          <%= f.input :linkedIn %>
+          <%= f.input :company %>
+          <%= f.input :position %>
+          <%= f.input :short_note %>
+          <%= f.input :other_url %>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

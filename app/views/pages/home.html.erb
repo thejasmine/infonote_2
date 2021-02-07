@@ -1,1 +1,11 @@
-HOME
+<h1>Home Page 🚀</h1>
+<%= link_to "Contact Page", contacts_path %>
+
+
+
+
+<% if user_signed_in? %>
+  <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to "Login or Signup", new_user_session_path %>
+<% end %>

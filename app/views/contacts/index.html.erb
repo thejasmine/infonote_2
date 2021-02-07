@@ -1,0 +1,21 @@
+<h3>My Contact</h3>
+
+<ul>
+  <% @contacts.each do |contact| %>
+    <li>First Name:<%= contact.first_name %></li>
+    <li>Last Name:<%= contact.last_name %></li>
+    <li>Company:<%= contact.company %></li>
+     <li>Position:<%= contact.position %></li>
+     <li><%= link_to 'Add meeting note', new_contact_meeting_path(contact.id) %></li>
+     <% contact.meetings.each do |meeting|%>
+      <li>Meeting:<%= meeting.meeting_time %></li>
+      <li>Note:<%= meeting.note %></li>
+     <% end %>
+     <%= link_to 'Show', contact %>
+  <% end %>
+</ul>
+
+  <% @meetings.each do |meeting| %>
+   Meeting:<%= meeting.note %>
+  <% end %>
+<%= link_to "add new contact", new_contact_path %>
