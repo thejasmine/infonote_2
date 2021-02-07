@@ -3,21 +3,26 @@ class ContactPolicy < ApplicationPolicy
     def resolve
       scope.where(user: user)
     end
+  end
 
-    def create?
-      return true
-    end
+  def new?
+    true
+  end
 
-    def update?
-      record.user == user
-    end
+  def create?
+    true
+  end
 
-    def show?
-      return true
-    end
 
-    def destroy?
-      record.user == user
-    end
+  def update?
+    record.user == user
+  end
+
+  def show?
+    return true
+  end
+
+  def destroy?
+    record.user == user
   end
 end
