@@ -1,8 +1,8 @@
 class ContactsController < ApplicationController
   before_action :find_contact, only: [ :show, :edit, :update, :destroy]
   def index
-    @contacts = Contact.all
-    @meetings = Meeting.all
+    @contacts = policy_scope(Contact)
+    #@meetings = policy_scope(Meeting)
   end
 
   def show
