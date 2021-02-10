@@ -13,8 +13,10 @@
 
 <h3>Task</h3>
 <% @contact.tasks.each do |task| %>
-  Meeting id:<%= task.id %>
+  Task id:<%= task.id %>
   Note:<%= task.note %>
+  <%= link_to 'Edit task', edit_task_path(task.id)  %>
+  <%= link_to 'Delete task', task_path(task.id), method: :delete, data: {confirm: "Are you sure you want to delete the task?"}  %>
 <%end%>
 
 

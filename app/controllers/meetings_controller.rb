@@ -5,10 +5,12 @@ class MeetingsController < ApplicationController
   def new
     @meeting = Meeting.new
     @contact = Contact.find(params[:contact_id])
+    authorize @meeting
   end
 
   def create
     @meeting = Meeting.new(meeting_params)
+    authorize @meeting
     @contact = Contact.find(params[:contact_id])
     @meeting.contact_id = @contact.id
     if @meeting.save
@@ -20,9 +22,11 @@ class MeetingsController < ApplicationController
   end
 
   def edit
+    authorize @meeting
   end
 
   def update
+    authorize @meeting
     if @meeting.update(meeting_params)
       redirect_to contacts_path
     else
@@ -31,6 +35,7 @@ class MeetingsController < ApplicationController
   end
 
   def destroy
+    authorize @meeting
     @meeting.destroy
     redirect_to contacts_path
   end

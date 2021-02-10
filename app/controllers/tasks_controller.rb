@@ -5,10 +5,12 @@ before_action :find_task, only: [ :edit, :update, :destroy]
   def new
     @task = Task.new
     @contact = Contact.find(params[:contact_id])
+    authorize @task
   end
 
   def create
     @task = Task.new(task_params)
+    authorize @task
     @contact = Contact.find(params[:contact_id])
     @task.contact_id = @contact.id
     if @task.save
@@ -20,17 +22,20 @@ before_action :find_task, only: [ :edit, :update, :destroy]
   end
 
   def edit
+    authorize @task
   end
 
   def update
+    authorize @task
     if @task.update(task_params)
-      redirect_to @task
+      redirect_to contacts_path
     else
       render :edit
     end
   end
 
   def destroy
+    authorize @task
     @task.destroy
     redirect_to contacts_path
   end
