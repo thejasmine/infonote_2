@@ -1,16 +1,45 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Infonotes</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag '//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/le-frog/jquery-ui.min.css' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+    <nav class="navbar navbar-expand-md">
+        <a class="navbar-brand" href="#">Logo</a>
+        <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-navigation">
+            <ul class="navbar-nav">
+                <% if user_signed_in? %>
+                <li class="nav-item">
+                    <%= link_to "All Contacts", contacts_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                    <%= link_to "Create Contacts", new_contact_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                    <%= link_to "Log out", destroy_user_session_path, method: :delete, :class => "nav-link" %>
+                </li>
+                <% end %>
+            </ul>
+        </div>
+    </nav>
+    <header class="page-header header container-fluid">
+        <div class="container features">
+            <div class="row">
+                <%= yield %>
+            </div>
+        </div>
+    </header>
+</body>
 </html>

@@ -1,0 +1,155 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap/scss/bootstrap.scss";
+ @import "LoginForm.scss";
+ 
+ body {
+     padding: 0;
+     margin: 0;
+     background: White;/* #7395AE;*/
+   }
+   /*--- navigation bar ---*/
+   .navbar {
+     background:#123C69;
+   }
+   .nav-link,
+   .navbar-brand {
+     cursor: pointer;
+   }
+  
+   .nav-link:hover {
+     color: #000;
+   }
+   .navbar-collapse {
+     justify-content: flex-end;
+   }
+ 
+   .features {
+     margin: 4em auto;
+     padding: 1em;
+     position: relative;
+   }
+   .feature-title {
+     color: #333;
+     font-size: 1.3rem;
+     font-weight: 700;
+     margin-bottom: 20px;
+     text-transform: uppercase;
+   }
+   .features img {
+     -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+     -moz-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+     margin-bottom: 16px;
+   }
+ 
+   .features .form-control,
+ .features input {
+     border-radius: 0;
+ }
+ .features .btn {
+   background-color: #123C69;
+   border: 1px solid #123C69;
+   color: #fff;
+   margin-top: 20px;
+ }
+ .features .btn:hover {
+   background-color: #333;
+   border: 1px solid #333;
+ }
+ 
+ .card {
+   background-color: #D1D7E0;
+   margin : 15px 15px 15px 15px;
+ }
+ 
+ .was-validated .custom-select:valid {
+   background-image: none;
+   border-color: #123C69;
+ }
+ 
+ 
+ .was-validated .custom-select:invalid {
+   background-image: none;
+   border-color: #123C69;
+ }
+ 
+ 
+ .was-validated .form-control:valid, .form-control.is-valid {
+   background-image: none;
+   border-color: #123C69;
+ }
+ 
+ /*footer*/
+ 
+ .page-footer {
+     background-color: #222;
+     color: #ccc;
+     padding: 20px 0 0;
+   }
+   .footer-copyright {
+     color: #666;
+     padding: 10px 0;
+     margin-bottom: -10px;
+   }
+ 
+   /*Vertical tabs*/
+   .tabs-left, .tabs-right {
+     border-bottom: none;
+     padding-top: 2px;
+   }
+   .tabs-left {
+     border-right: 1px solid #ddd;
+   }
+   .tabs-right {
+     border-left: 1px solid #ddd;
+   }
+   .tabs-left>li, .tabs-right>li {
+     float: none;
+     margin-bottom: 2px;
+   }
+   .tabs-left>li {
+     margin-right: -1px;
+   }
+   .tabs-right>li {
+     margin-left: -1px;
+   }
+   .tabs-left>li.active>a,
+   .tabs-left>li.active>a:hover,
+   .tabs-left>li.active>a:focus {
+     border-bottom-color: #ddd;
+     border-right-color: transparent;
+   }
+   
+   .tabs-right>li.active>a,
+   .tabs-right>li.active>a:hover,
+   .tabs-right>li.active>a:focus {
+     border-bottom: 1px solid #ddd;
+     border-left-color: transparent;
+   }
+   .tabs-left>li>a {
+     border-radius: 4px 0 0 4px;
+     margin-right: 0;
+     display:block;
+   }
+   .tabs-right>li>a {
+     border-radius: 0 4px 4px 0;
+     margin-right: 0;
+   }
+
+   .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    background-color: #123C69;
+   }
