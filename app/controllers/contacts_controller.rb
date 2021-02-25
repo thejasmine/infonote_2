@@ -20,7 +20,7 @@ class ContactsController < ApplicationController
     @contact.user = current_user
     if @contact.save
       authorize @contact
-      redirect_to @contact, notice: 'Your Contact has been created.'
+      redirect_to contacts_path, notice: 'Your Contact has been created.'
     else
       raise
       render :new
@@ -34,7 +34,7 @@ class ContactsController < ApplicationController
   def update
     authorize @contact
     if @contact.update(contact_params)
-      redirect_to @contact
+      redirect_to contacts_path
     else
       render :edit
     end

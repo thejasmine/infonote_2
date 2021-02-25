@@ -1,19 +1,61 @@
-<h3>My Contact</h3>
-
-<ul>
-  <% @contacts.each do |contact| %>
-    <li>First Name:<%= contact.first_name %></li>
-    <li>Last Name:<%= contact.last_name %></li>
-    <li>Company:<%= contact.company %></li>
-     <li>Position:<%= contact.position %></li>
-     <li><%= link_to 'Add meeting note', new_contact_meeting_path(contact.id) %></li>
-     <% contact.meetings.each do |meeting|%>
-      <li>Meeting:<%= meeting.meeting_time %></li>
-      <li>Note:<%= meeting.note %></li>
-     <% end %>
-     <%= link_to 'Show', contact %>
-  <% end %>
-</ul>
-
-<%= link_to "add new contact", new_contact_path %>
-
+<h3>Contacts</h3>
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-3">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <% @contacts.each do |contact| %>
+                <a class="nav-link" id="v-pills-home-tab" data-toggle="tab" href="#Contact<%= contact.id %>" role="tab" aria-controls="Contact<%= contact.id %>" aria-selected="true"><%= contact.first_name %> <%= contact.last_name %></a>
+                <%end%>
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="tab-content" id="v-pills-tabContent">
+                <% @contacts.each do |contact| %>
+                <div class="tab-pane fade" id="Contact<%= contact.id %>" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                    <div class="card">
+                        <div class="card-body">
+                            <p><h4><%= contact.first_name %> <%= contact.last_name %></h4></p>
+                            <p><%= contact.company %> | <%= contact.position %></p>
+                            <!--<li><%= link_to 'Add meeting note', new_contact_meeting_path(contact.id) %></li>
+                            <p><% contact.meetings.each do |meeting|%></p>
+                            <p>Meeting:<%= meeting.meeting_time %></p>
+                            <p>Note:<%= meeting.note %></p>-->
+                            <p><%= contact.linkedIn %></p>
+                            <p><%= contact.phone %></p>                            
+                            <!--<p>Meeting:<%= meeting.meeting_time %></p>-->
+                            <% end %>
+                            <!--<%= link_to 'Show', contact %>-->
+                            <%= link_to 'Edit contact', edit_contact_path(contact.id)  %> |
+                            <%= link_to 'Delete', contact_path(contact.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="feature-title">Meeting</h3>
+                            <p><% contact.meetings.each do |meeting| %>
+                                Meeting id:<%= meeting.id %>
+                                Note:<%= meeting.note %>
+                            <p><%= link_to 'Edit note', edit_meeting_path(meeting.id)  %> |
+                                <%= link_to 'Delete note', meeting_path(meeting.id), method: :delete, data: {confirm: "Are you sure you want to delete the note?"}  %>
+                            </p>
+                            </p>
+                            <%end%>
+                            <%= link_to 'Add note', new_contact_meeting_path(contact.id) %>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="feature-title">Task</h3>
+                            <p><% contact.tasks.each do |task| %>
+                                Meeting id:<%= task.id %>
+                                Note:<%= task.note %></p>
+                            <%end%>
+                            <p><%= link_to 'Add reminder', new_contact_task_path(contact.id) %></p>
+                        </div>
+                    </div>
+                </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
